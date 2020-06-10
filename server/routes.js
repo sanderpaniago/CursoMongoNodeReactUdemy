@@ -1,3 +1,4 @@
+// Aquivo responsavel por definir as rotas da aplicação, e definir seus Middlewares dentro do controller para as ações de cada rota.
 const express = require('express'),
     router = express.Router(),
     home = require('../controllers/home')
@@ -9,5 +10,5 @@ module.exports = (app) => {
     router.post('/images', image.create)
     router.post('/images/:image_id/like', image.like)
     router.post('/images/:image_id/comment', image.comment);
-    app.use(router)
+    app.use(router);
 }

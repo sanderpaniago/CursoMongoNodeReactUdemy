@@ -8,6 +8,7 @@ const path = require('path'),
     methdOverride = require('method-override'),
     errorHandler = require('errorhandler')
 
+// Exporta um objeto app para o aquivo server.js
 module.exports = (app) => {
     app.use(morgan('dev'))
     app.use(bodyParser.urlencoded({'extended': true}))
@@ -16,8 +17,10 @@ module.exports = (app) => {
     routes(app)
     app.use('/public/', express.static(path.join(__dirname, '../public')))
 
-    if('development' === app.get('env')) {
-        app.use(errorHandler())
-    }
+if('development' === app.get('env')) {
+    app.use(errorHandler())
+}
     return app
 }
+
+// Responsavel por configurar o servidor.
